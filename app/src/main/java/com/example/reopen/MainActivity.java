@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
@@ -27,6 +28,13 @@ public class MainActivity extends AppCompatActivity {
         CaptionedImagesAdapter adapter =
                 new CaptionedImagesAdapter(Business.businesses.get(category));
         recyclerView.setAdapter(adapter);
+
+        adapter.setListener((cat, position) -> {
+            Intent i = new Intent(MainActivity.this, BusProfileActivity.class);
+            i.putExtra("category", cat);
+            i.putExtra("position", position);
+            startActivity(i);
+        });
 
         LinearLayoutManager lm = new LinearLayoutManager(MainActivity.this);
         lm.setOrientation(LinearLayoutManager.HORIZONTAL);

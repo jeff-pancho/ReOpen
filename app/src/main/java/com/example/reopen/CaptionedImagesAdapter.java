@@ -14,6 +14,16 @@ import androidx.recyclerview.widget.RecyclerView;
 public class CaptionedImagesAdapter extends RecyclerView.Adapter<CaptionedImagesAdapter.ViewHolder> {
     private Business[] businesses;
 
+    private Listener listener;
+
+    interface Listener {
+        void onClick(BusinessCategory category, int position);
+    }
+
+    public void setListener(Listener listener) {
+        this.listener = listener;
+    }
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private CardView cardView;
 
@@ -48,6 +58,10 @@ public class CaptionedImagesAdapter extends RecyclerView.Adapter<CaptionedImages
 
         TextView textView = cardView.findViewById(R.id.item_text);
         textView.setText(b.getName());
+
+        cardView.setOnClickListener(id -> {
+            this.listener.onClick(b.getCategory(), position);
+        });
     }
 
     @Override
