@@ -19,5 +19,17 @@ public class BusProfileActivity extends AppCompatActivity {
 
         TextView busName = findViewById(R.id.businessName);
         busName.setText(business.getName());
+
+        TextView busNameLong = findViewById(R.id.infoData1);
+        busNameLong.setText(business.getName());
+
+        TextView addressLine = findViewById(R.id.infoData2);
+        addressLine.setText(business.getAddress1());
+
+        TextView phoneNumber = findViewById(R.id.infoData3);
+        phoneNumber.setText(business.getPhoneNumber());
+
+        TextView openingDate = findViewById(R.id.infoData4);
+        openingDate.setText(business.getOpeningDate());
     }
 }

@@ -9,4 +9,9 @@
     <string name="toolbar_search_field_hint">Search</string>
     <string name="post_button_text">Post</string>
     <string name="title_activity_profile_map">Map</string>
+
+    <string name="business_name_long">Business Name: </string>
+    <string name="address_line">Address: </string>
+    <string name="phone_number">Phone Number: </string>
+    <string name="opening_date">Opening Date: </string>
 </resources>

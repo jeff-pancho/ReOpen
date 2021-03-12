@@ -54,7 +54,7 @@
                 android:id="@+id/info1"
                 android:layout_width="122dp"
                 android:layout_height="match_parent"
-                android:text="TextView" />
+                android:text="@string/business_name_long" />
 
             <TextView
                 android:id="@+id/infoData1"
@@ -71,7 +71,7 @@
                 android:id="@+id/info2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="@string/address_line" />
 
             <TextView
                 android:id="@+id/infoData2"
@@ -88,7 +88,7 @@
                 android:id="@+id/info3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="@string/phone_number" />
 
             <TextView
                 android:id="@+id/infoData3"
@@ -105,7 +105,7 @@
                 android:id="@+id/info4"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="TextView" />
+                android:text="@string/opening_date" />
 
             <TextView
                 android:id="@+id/infoData4"
