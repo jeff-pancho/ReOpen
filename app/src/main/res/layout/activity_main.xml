@@ -34,7 +34,6 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="3"
                 android:text="@string/post_button_text" />
-
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
 
@@ -46,60 +45,36 @@
             android:layout_height="match_parent"
             android:orientation="vertical" >
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="@string/featured_text"
-                android:textSize="20sp" />
+                style="@style/MainHeader"
+                android:text="@string/featured_text" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/featured_recycler"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:scrollbars="horizontal"/>
+                style="@style/MainRecyclerView" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="@string/restaurants_text"
-                android:textSize="20sp" />
+                style="@style/MainHeader"
+                android:text="@string/restaurants_text" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/restaurant_recycler"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:scrollbars="horizontal"/>
+                style="@style/MainRecyclerView" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="@string/shopping_text"
-                android:textSize="20sp" />
+                style="@style/MainHeader"
+                android:text="@string/shopping_text" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/shopping_recycler"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:scrollbars="horizontal"/>
+                style="@style/MainRecyclerView" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="@string/services_text"
-                android:textSize="20sp" />
+                style="@style/MainHeader"
+                android:text="@string/services_text" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/services_recycler"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:scrollbars="horizontal"/>
+                style="@style/MainRecyclerView" />
 
         </LinearLayout>
 
