@@ -6,22 +6,27 @@ public class Business {
     private final String name;
     private final BusinessCategory category;
     private final int imageResourceId;
+    private final String address1;
+    private final String phoneNumber;
+    private final String openingDate;
+    private final String info;
 
     public static final HashMap<BusinessCategory, Business[]> businesses = new HashMap<>();
+
     static {
-        businesses.put(BusinessCategory.RESTAURANT, new Business[] {
+        businesses.put(BusinessCategory.RESTAURANT, new Business[]{
                 new Business("Yummy restaurant", BusinessCategory.RESTAURANT, R.drawable.dummy),
                 new Business("Gross restaurant", BusinessCategory.RESTAURANT, R.drawable.dummy),
                 new Business("The restaurant", BusinessCategory.RESTAURANT, R.drawable.dummy),
                 new Business("Maybe a restaurant", BusinessCategory.RESTAURANT, R.drawable.dummy)
         });
-        businesses.put(BusinessCategory.SERVICES, new Business[] {
+        businesses.put(BusinessCategory.SERVICES, new Business[]{
                 new Business("Cool Services", BusinessCategory.SERVICES, R.drawable.dummy),
                 new Business("Warm Services", BusinessCategory.SERVICES, R.drawable.dummy),
                 new Business("Hot Services", BusinessCategory.SERVICES, R.drawable.dummy),
                 new Business("Absolute Zero Services", BusinessCategory.SERVICES, R.drawable.dummy)
         });
-        businesses.put(BusinessCategory.SHOPPING, new Business[] {
+        businesses.put(BusinessCategory.SHOPPING, new Business[]{
                 new Business("The Mall", BusinessCategory.SHOPPING, R.drawable.dummy),
                 new Business("The Store", BusinessCategory.SHOPPING, R.drawable.dummy),
                 new Business("The Shopping Place", BusinessCategory.SHOPPING, R.drawable.dummy),
@@ -33,6 +38,10 @@ public class Business {
         this.name = name;
         this.category = category;
         this.imageResourceId = imageResourceId;
+        this.address1 = "12345 999th Street";
+        this.phoneNumber = "(123) 456-7890";
+        this.openingDate = "99/12/31";
+        this.info = "We do stuff. Stuff and stuff like that.";
     }
 
     public String getName() {
@@ -45,5 +54,21 @@ public class Business {
 
     public int getImageResourceId() {
         return this.imageResourceId;
+    }
+
+    public String getAddress1() {
+        return address1;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getOpeningDate() {
+        return openingDate;
+    }
+
+    public String getInfo() {
+        return info;
     }
 }
