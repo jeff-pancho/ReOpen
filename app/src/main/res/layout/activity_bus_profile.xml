@@ -1,130 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".BusProfileActivity">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/businessName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="72dp"
-        android:text="TextView"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/businessProfilePic"
-        android:layout_width="128dp"
-        android:layout_height="121dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="60dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/dummy" />
-
-    <TextView
-        android:id="@+id/businessBio"
-        android:layout_width="412dp"
-        android:layout_height="133dp"
-        android:layout_marginTop="21dp"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
-
-    <TableLayout
-        android:id="@+id/tableLayout"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginTop="176dp"
-        android:translationY="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
 
-        <TableRow
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/businessProfilePic"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:adjustViewBounds="false"
+                android:scaleType="centerCrop"
+                android:src="@drawable/dummy" />
 
             <TextView
-                android:id="@+id/info1"
-                android:layout_width="122dp"
-                android:layout_height="match_parent"
-                android:text="@string/business_name_long" />
-
-            <TextView
-                android:id="@+id/infoData1"
-                android:layout_width="291dp"
+                android:id="@+id/businessName"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
-        </TableRow>
+                android:text="TEST"
+                android:layout_gravity="center"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </FrameLayout>
 
-        <TableRow
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragment"
+            android:name="com.example.reopen.MapsFragment"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="250dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginHorizontal="30dp" />
 
-            <TextView
-                android:id="@+id/info2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/address_line" />
-
-            <TextView
-                android:id="@+id/infoData2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
-        </TableRow>
-
-        <TableRow
+        <TableLayout
+            android:id="@+id/tableLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="100dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginHorizontal="30dp"
+            android:translationY="0dp">
 
-            <TextView
-                android:id="@+id/info3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/phone_number" />
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/infoData3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
-        </TableRow>
+                <TextView
+                    android:id="@+id/info1"
+                    android:layout_width="122dp"
+                    android:layout_height="match_parent"
+                    android:text="@string/business_name_long" />
 
-        <TableRow
+                <TextView
+                    android:id="@+id/infoData1"
+                    android:layout_width="291dp"
+                    android:layout_height="wrap_content"
+                    android:text="TextView" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/info2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/address_line" />
+
+                <TextView
+                    android:id="@+id/infoData2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TextView" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/info3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/phone_number" />
+
+                <TextView
+                    android:id="@+id/infoData3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TextView" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/info4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/opening_date" />
+
+                <TextView
+                    android:id="@+id/infoData4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TextView" />
+            </TableRow>
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/businessBio"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/info4"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="@string/opening_date" />
-
-            <TextView
-                android:id="@+id/infoData4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
-        </TableRow>
-    </TableLayout>
-
-    <fragment
-        android:id="@+id/fragment"
-        android:name="com.example.reopen.MapsFragment"
-        android:layout_width="406dp"
-        android:layout_height="290dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="3dp"
-        android:layout_marginBottom="3dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/businessBio" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:layout_marginHorizontal="30dp"
+            android:text="REALLY LONG TEXT REALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXT" />
+    </LinearLayout>
+</ScrollView>
