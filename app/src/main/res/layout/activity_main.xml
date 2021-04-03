@@ -16,15 +16,14 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <EditText
+            <SearchView
                 android:id="@+id/toolbar_search_field"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginEnd="20dp"
                 android:layout_weight="1"
                 android:layout_gravity="center_vertical"
-                android:inputType="text"
-                android:hint="@string/toolbar_search_field_hint"/>
+                android:queryHint="@string/toolbar_search_field_hint"/>
 
             <Button
                 android:id="@+id/toolbar_post_button"

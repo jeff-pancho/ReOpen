@@ -6,7 +6,7 @@
     <string name="shopping_text">Shopping</string>
     <string name="services_text">Services</string>
 
-    <string name="toolbar_search_field_hint">Search</string>
+    <string name="toolbar_search_field_hint">Search Businesses</string>
     <string name="post_button_text">Post</string>
     <string name="title_activity_profile_map">Map</string>
 
