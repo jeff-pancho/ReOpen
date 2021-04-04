@@ -1,9 +1,13 @@
 package com.example.reopen;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -14,13 +18,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Hide the default toolbar to replace it with a custom one
-        getSupportActionBar().hide();
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        initSearchBar();
 
         initRecyclerView(R.id.featured_recycler, BusinessCategory.RESTAURANT);
         initRecyclerView(R.id.restaurant_recycler, BusinessCategory.RESTAURANT);
         initRecyclerView(R.id.shopping_recycler, BusinessCategory.SHOPPING);
         initRecyclerView(R.id.services_recycler, BusinessCategory.SERVICES);
+    }
+
+    public void initSearchBar() {
+        SearchManager searchManager =
+                (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        SearchView searchView = findViewById(R.id.search_field);
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+
+        searchView.setIconifiedByDefault(false);
     }
 
     private void initRecyclerView(int id, BusinessCategory category) {
