@@ -18,7 +18,27 @@ public class SearchableActivity extends ListActivity {
         }
     }
 
+    // All of this is terrible, reimplement after databases are implemented
     public void doSearch(String query) {
-        System.out.println(query);
+        Business[] businesses = Business.getAllBusinesses();
+        for (Business bus : businesses) {
+            if (query.equals(bus.getName())) {
+                Intent i = new Intent(SearchableActivity.this, BusProfileActivity.class);
+                i.putExtra("category", bus.getCategory());
+                i.putExtra("position", findBusPosition(bus));
+                startActivity(i);
+            }
+        }
+        finish();
+    }
+
+    public int findBusPosition(Business bus) {
+        Business[] businesses = Business.businesses.get(bus.getCategory());
+        for (int i = 0; i < businesses.length; i++) {
+            if (bus == businesses[i]) {
+                return i;
+            }
+        }
+        return -1;
     }
 }

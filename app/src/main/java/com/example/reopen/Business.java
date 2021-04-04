@@ -1,6 +1,9 @@
 package com.example.reopen;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 
 public class Business {
     private final String name;
@@ -42,6 +45,14 @@ public class Business {
         this.phoneNumber = "(123) 456-7890";
         this.openingDate = "99/12/31";
         this.info = "We do stuff. Stuff and stuff like that.";
+    }
+
+    public static Business[] getAllBusinesses() {
+        List<Business> allBusinesses = new ArrayList<>();
+        for (Business[] busArray : businesses.values()) {
+            Collections.addAll(allBusinesses, busArray);
+        }
+        return allBusinesses.toArray(new Business[0]);
     }
 
     public String getName() {

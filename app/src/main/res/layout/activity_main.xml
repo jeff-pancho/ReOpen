@@ -30,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_weight="4"
+                android:layout_weight="3"
                 android:text="@string/post_button_text" />
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
