@@ -31,7 +31,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="3"
-                android:text="@string/post_button_text" />
+                android:text="@string/post_button_text"
+                android:onClick="onMakePost" />
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
 
