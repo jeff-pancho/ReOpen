@@ -9,4 +9,32 @@
     <string name="toolbar_search_field_hint">Search</string>
     <string name="post_button_text">Post</string>
     <string name="title_activity_profile_map">Map</string>
+
+    <!-- Strings for register/login -->
+    <string name="login_title">LOGIN</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="create_new_account">Create new account</string>
+
+
+    <!-- Strings for sign up page-->
+    <string name="sign_up_title">Register Your Business\' Re-opening</string>
+    <string name="business_name">Business Name</string>
+    <string name="business_address">Address</string>
+    <string name="business_email">Email</string>
+    <string name="business_phone">phone</string>
+    <string name="business_date">Sign up date eg. May 23 2021</string>
+    <string name="business_description">Description…\n\n\n\n\n\n\n\n</string>
+
+    <!-- Strings for sign up spinner -->
+    <!-- Note: These strings are passed to database for "category" type.-->
+    <string-array name="business_categories">
+        <item>Restaurant</item>
+        <item>Shopping</item>
+        <item>Services</item>
+        <item>Other</item>
+    </string-array>
+
 </resources>
