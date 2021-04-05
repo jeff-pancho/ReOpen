@@ -11,6 +11,8 @@ import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 public class CaptionedImagesAdapter extends RecyclerView.Adapter<CaptionedImagesAdapter.ViewHolder> {
@@ -53,10 +55,11 @@ public class CaptionedImagesAdapter extends RecyclerView.Adapter<CaptionedImages
         final BusinessListing b = businesses.get(position);
 
         ImageView imageView = cardView.findViewById(R.id.item_image);
+        Picasso.get().load(b.getImageURL()).into(imageView);
 //        Drawable drawable = ContextCompat.getDrawable(cardView.getContext(), b.getImageResourceId());
-        Drawable drawable = ContextCompat.getDrawable(cardView.getContext(), R.drawable.dummy);
+//        Drawable drawable = ContextCompat.getDrawable(cardView.getContext(), R.drawable.dummy);
 
-        imageView.setImageDrawable(drawable);
+//        imageView.setImageDrawable(drawable);
         imageView.setContentDescription(b.getName());
 
         TextView textView = cardView.findViewById(R.id.item_text);

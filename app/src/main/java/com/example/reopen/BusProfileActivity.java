@@ -3,9 +3,11 @@ package com.example.reopen;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
+import com.squareup.picasso.Picasso;
 
 public class BusProfileActivity extends AppCompatActivity {
 
@@ -15,6 +17,9 @@ public class BusProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_bus_profile);
 
         BusinessListing business = getBusiness();
+
+        ImageView busProfilePic = findViewById(R.id.businessProfilePic);
+        Picasso.get().load(business.getImageURL()).into(busProfilePic);
 
         TextView busName = findViewById(R.id.businessName);
         busName.setText(business.getName());
