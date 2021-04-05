@@ -1,20 +1,35 @@
 package com.example.reopen;
 
+import androidx.annotation.NonNull;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * This is a re-write of the Business class, with more information, and without enums so that
  * it's more database friendly.
  */
 public class BusinessListing {
 
-    private final String listingID;
-    private final String name;
-    private final String category;
-    private final String email;
-    private final String phone;
-    private final String imageURL;
-    private final String description;
-    private final String address;
-    private final String openDate;
+    private String listingID;
+    private String name;
+    private String category;
+    private String email;
+    private String phone;
+    private String imageURL;
+    private String description;
+    private String address;
+    private String openDate;
+
+    public BusinessListing() {
+
+    }
 
     public BusinessListing(String listingID, String name, String email, String phone, String category, String imageURL, String address, String openDate, String description) {
         this.listingID = listingID;
@@ -62,5 +77,9 @@ public class BusinessListing {
 
     public String getPhone() {
         return phone;
+    }
+
+    public String toString() {
+        return this.getName();
     }
 }

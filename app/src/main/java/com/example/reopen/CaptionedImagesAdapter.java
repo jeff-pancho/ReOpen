@@ -11,13 +11,15 @@ import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.List;
+
 public class CaptionedImagesAdapter extends RecyclerView.Adapter<CaptionedImagesAdapter.ViewHolder> {
-    private Business[] businesses;
+    private List<BusinessListing> businesses;
 
     private Listener listener;
 
     interface Listener {
-        void onClick(BusinessCategory category, int position);
+        void onClick(String category, int position);
     }
 
     public void setListener(Listener listener) {
@@ -33,7 +35,7 @@ public class CaptionedImagesAdapter extends RecyclerView.Adapter<CaptionedImages
         }
     }
 
-    public CaptionedImagesAdapter(Business[] businesses) {
+    public CaptionedImagesAdapter(List<BusinessListing> businesses) {
         this.businesses = businesses;
     }
 
@@ -48,10 +50,11 @@ public class CaptionedImagesAdapter extends RecyclerView.Adapter<CaptionedImages
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final CardView cardView = holder.cardView;
-        final Business b = businesses[position];
+        final BusinessListing b = businesses.get(position);
 
         ImageView imageView = cardView.findViewById(R.id.item_image);
-        Drawable drawable = ContextCompat.getDrawable(cardView.getContext(), b.getImageResourceId());
+//        Drawable drawable = ContextCompat.getDrawable(cardView.getContext(), b.getImageResourceId());
+        Drawable drawable = ContextCompat.getDrawable(cardView.getContext(), R.drawable.dummy);
 
         imageView.setImageDrawable(drawable);
         imageView.setContentDescription(b.getName());
@@ -66,6 +69,6 @@ public class CaptionedImagesAdapter extends RecyclerView.Adapter<CaptionedImages
 
     @Override
     public int getItemCount() {
-        return this.businesses.length;
+        return this.businesses.size();
     }
 }

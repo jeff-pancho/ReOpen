@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "527685326709",
+    "firebase_url": "https://reopen-b19e2-default-rtdb.firebaseio.com",
+    "project_id": "reopen-b19e2",
+    "storage_bucket": "reopen-b19e2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:527685326709:android:7320b8e43b2ec05364253c",
+        "android_client_info": {
+          "package_name": "com.example.reopen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "527685326709-9uii0u00e4nnn85n1cgb4smhviebr89f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBYHtcnZVryRxNFvhz7V1RrIol1zCT0WU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "527685326709-9uii0u00e4nnn85n1cgb4smhviebr89f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -75,6 +75,14 @@
                 android:id="@+id/services_recycler"
                 style="@style/MainRecyclerView" />
 
+            <TextView
+                style="@style/MainHeader"
+                android:text="@string/other_text" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/other_recycler"
+                style="@style/MainRecyclerView" />
+
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>

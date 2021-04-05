@@ -5,6 +5,7 @@
     <string name="restaurants_text">Restaurants</string>
     <string name="shopping_text">Shopping</string>
     <string name="services_text">Services</string>
+    <string name="other_text">Other</string>
 
     <string name="toolbar_search_field_hint">Search Businesses</string>
     <string name="post_button_text">Post</string>
