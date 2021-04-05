@@ -47,12 +47,13 @@ public class Business {
         this.info = "We do stuff. Stuff and stuff like that.";
     }
 
-    public static Business[] getAllBusinesses() {
+    public static List<Business> getAllBusinesses() {
         List<Business> allBusinesses = new ArrayList<>();
         for (Business[] busArray : businesses.values()) {
             Collections.addAll(allBusinesses, busArray);
         }
-        return allBusinesses.toArray(new Business[0]);
+        return allBusinesses;
+//        return allBusinesses.toArray(new Business[0]);
     }
 
     public String getName() {
@@ -81,5 +82,9 @@ public class Business {
 
     public String getInfo() {
         return info;
+    }
+
+    public String toString() {
+        return getName();
     }
 }
