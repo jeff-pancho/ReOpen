@@ -8,6 +8,15 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import androidx.annotation.NonNull;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +24,8 @@ import me.xdrop.fuzzywuzzy.FuzzySearch;
 import me.xdrop.fuzzywuzzy.model.BoundExtractedResult;
 
 public class SearchableActivity extends ListActivity {
-    ArrayAdapter<Business> adapter;
+    ArrayAdapter<BusinessListing> adapter;
+    List<BusinessListing> listings = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,37 +39,43 @@ public class SearchableActivity extends ListActivity {
     }
 
     public void doSearch(String query) {
-        // Perform a fuzzy search against all businesses and get the top results
-        List<BoundExtractedResult<Business>> results =
-                FuzzySearch.extractSorted(query, Business.getAllBusinesses(), bus -> bus.getName());
-        List<Business> busList = new ArrayList<>();
-        for (BoundExtractedResult<Business> result : results) {
-            busList.add(result.getReferent());
-        }
+        DatabaseReference mRef = FirebaseDatabase.getInstance().getReference();
+        mRef.child("listings").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    BusinessListing bus = snapshot.getValue(BusinessListing.class);
+                    listings.add(bus);
+                }
 
-        adapter =
-                new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, busList);
-        setListAdapter(adapter);
+                // Perform a fuzzy search against all businesses and get the top results
+                List<BusinessListing> busList = new ArrayList<>();
+                List<BoundExtractedResult<BusinessListing>> results =
+                        FuzzySearch.extractSorted(query, listings, BusinessListing::getName);
+                for (BoundExtractedResult<BusinessListing> result : results) {
+                    busList.add(result.getReferent());
+                }
+
+                adapter = new ArrayAdapter<>(SearchableActivity.this,
+                        android.R.layout.simple_list_item_1,
+                        busList);
+                setListAdapter(adapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) { }
+        });
     }
 
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
-        Business bus = adapter.getItem(position);
+        BusinessListing bus = adapter.getItem(position);
 
         Intent i = new Intent(SearchableActivity.this, BusProfileActivity.class);
-        i.putExtra("category", bus.getCategory());
-        i.putExtra("position", findBusPosition(bus));
+        Gson gson = new Gson();
+        String busData = gson.toJson(bus);
+        i.putExtra("busData", busData);
         startActivity(i);
-    }
-
-    public int findBusPosition(Business bus) {
-        Business[] businesses = Business.businesses.get(bus.getCategory());
-        for (int i = 0; i < businesses.length; i++) {
-            if (bus == businesses[i]) {
-                return i;
-            }
-        }
-        return -1;
     }
 }

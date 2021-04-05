@@ -19,7 +19,7 @@ public class CaptionedImagesAdapter extends RecyclerView.Adapter<CaptionedImages
     private Listener listener;
 
     interface Listener {
-        void onClick(String category, int position);
+        void onClick(BusinessListing listing);
     }
 
     public void setListener(Listener listener) {
@@ -63,7 +63,7 @@ public class CaptionedImagesAdapter extends RecyclerView.Adapter<CaptionedImages
         textView.setText(b.getName());
 
         cardView.setOnClickListener(id -> {
-            this.listener.onClick(b.getCategory(), position);
+            this.listener.onClick(b);
         });
     }
 

@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+
 public class BusProfileActivity extends AppCompatActivity {
 
     @Override
@@ -12,10 +14,7 @@ public class BusProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bus_profile);
 
-        Bundle extras = getIntent().getExtras();
-        BusinessCategory category = (BusinessCategory) extras.get("category");
-        int position = (int) extras.get("position");
-        Business business = Business.businesses.get(category)[position];
+        BusinessListing business = getBusiness();
 
         TextView busName = findViewById(R.id.businessName);
         busName.setText(business.getName());
@@ -24,12 +23,20 @@ public class BusProfileActivity extends AppCompatActivity {
         busNameLong.setText(business.getName());
 
         TextView addressLine = findViewById(R.id.infoData2);
-        addressLine.setText(business.getAddress1());
+        addressLine.setText(business.getAddress());
 
         TextView phoneNumber = findViewById(R.id.infoData3);
-        phoneNumber.setText(business.getPhoneNumber());
+        phoneNumber.setText(business.getPhone());
 
         TextView openingDate = findViewById(R.id.infoData4);
-        openingDate.setText(business.getOpeningDate());
+        openingDate.setText(business.getOpenDate());
+    }
+
+    private BusinessListing getBusiness() {
+        Bundle extras = getIntent().getExtras();
+        String busData = extras.getString("busData");
+        Gson gson = new Gson();
+        BusinessListing business = gson.fromJson(busData, BusinessListing.class);
+        return business;
     }
 }

@@ -18,6 +18,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -73,14 +74,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initRecyclerView(int id, String category) {
-        System.out.println("IM GONNA FUCKING KILL MYSELF " + category);
-
         RecyclerView recyclerView = findViewById(id);
         CaptionedImagesAdapter adapter = new CaptionedImagesAdapter(getBusByCategory(category));
         recyclerView.setAdapter(adapter);
 
         LinearLayoutManager lm = new LinearLayoutManager(MainActivity.this);
         lm.setOrientation(LinearLayoutManager.HORIZONTAL);
+
+        adapter.setListener(bus -> {
+            Intent i = new Intent(MainActivity.this, BusProfileActivity.class);
+            Gson gson = new Gson();
+            String busData = gson.toJson(bus);
+            i.putExtra("busData", busData);
+            startActivity(i);
+        });
 
         recyclerView.setLayoutManager(lm);
     }
@@ -95,27 +102,8 @@ public class MainActivity extends AppCompatActivity {
         return result;
     }
 
-//    private void initRecyclerView(int id, BusinessCategory category) {
-//        RecyclerView recyclerView = findViewById(id);
-//        CaptionedImagesAdapter adapter =
-//                new CaptionedImagesAdapter(Business.businesses.get(category));
-//        recyclerView.setAdapter(adapter);
-//
-//        adapter.setListener((cat, position) -> {
-//            Intent i = new Intent(MainActivity.this, BusProfileActivity.class);
-//            i.putExtra("category", cat);
-//            i.putExtra("position", position);
-//            startActivity(i);
-//        });
-//
-//        LinearLayoutManager lm = new LinearLayoutManager(MainActivity.this);
-//        lm.setOrientation(LinearLayoutManager.HORIZONTAL);
-//
-//        recyclerView.setLayoutManager(lm);
-//    }
-//
-//    public void onMakePost(View v) {
-//        Intent intent = new Intent(MainActivity.this, SignUpActivity.class);
-//        startActivity(intent);
-//    }
+    public void onMakePost(View v) {
+        Intent intent = new Intent(MainActivity.this, SignUpActivity.class);
+        startActivity(intent);
+    }
 }
