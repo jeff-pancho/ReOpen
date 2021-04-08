@@ -2,6 +2,7 @@ package com.example.reopen;
 
 import androidx.annotation.NonNull;
 
+import com.google.android.gms.maps.model.LatLng;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,12 +27,13 @@ public class BusinessListing {
     private String description;
     private String address;
     private String openDate;
+    private LatLng location;
 
     public BusinessListing() {
 
     }
 
-    public BusinessListing(String listingID, String name, String email, String phone, String category, String imageURL, String address, String openDate, String description) {
+    public BusinessListing(String listingID, String name, String email, String phone, String category, String imageURL, String address, String openDate, String description, LatLng location) {
         this.listingID = listingID;
         this.name = name;
         this.category = category;
@@ -41,6 +43,7 @@ public class BusinessListing {
         this.description = description;
         this.email = email;
         this.phone = phone;
+        this.location = location;
     }
 
     public String getListingID() {
