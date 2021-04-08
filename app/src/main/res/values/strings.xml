@@ -36,6 +36,7 @@
     <!-- Strings for sign up spinner -->
     <!-- Note: These strings are passed to database for "category" type.-->
     <string-array name="business_categories">
+        <item>Business Category</item>
         <item>Restaurant</item>
         <item>Shopping</item>
         <item>Services</item>

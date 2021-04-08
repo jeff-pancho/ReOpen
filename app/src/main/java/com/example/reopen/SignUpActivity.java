@@ -3,12 +3,15 @@ package com.example.reopen;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -87,6 +90,8 @@ public class SignUpActivity extends AppCompatActivity {
         businessDescription = findViewById(R.id.sign_up_description);
         businessImageURL = findViewById(R.id.sign_up_image_url);
 
+        initSpinner();
+
         addListing = findViewById(R.id.sign_up_button);
 
         addListing.setOnClickListener(new View.OnClickListener(){
@@ -96,5 +101,38 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void initSpinner() {
+        // Override our adapter's methods to show hint
+        CharSequence[] businessCategories = getResources().getStringArray(R.array.business_categories);
+        ArrayAdapter<CharSequence> categoryAdapter =
+                new ArrayAdapter<CharSequence>(this, R.layout.spinner_layout, businessCategories) {
+
+            @Override
+            public boolean isEnabled(int position) {
+                return position != 0;
+            }
+
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                TextView textView = (TextView) super.getView(position, convertView, parent);
+                if (position == 0) {
+                    textView.setTextColor(Color.GRAY);
+                }
+                return textView;
+            }
+
+            @Override
+            public View getDropDownView(int position, View convertView, ViewGroup parent) {
+                TextView textView = (TextView) super.getView(position, convertView, parent);
+                if (position == 0) {
+                    textView.setTextColor(Color.GRAY);
+                }
+                return textView;
+            }
+        };
+        categoryAdapter.setDropDownViewResource(R.layout.spinner_layout);
+        businessCategory.setAdapter(categoryAdapter);
     }
 }
