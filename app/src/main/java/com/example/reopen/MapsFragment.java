@@ -18,6 +18,9 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsFragment extends Fragment {
 
+    double lat;
+    double lng;
+
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
 
         /**
@@ -31,8 +34,8 @@ public class MapsFragment extends Fragment {
          */
         @Override
         public void onMapReady(GoogleMap googleMap) {
-            LatLng sydney = new LatLng(49.2716236,-123.0178033);
-            googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+            LatLng sydney = new LatLng(lat,lng);
+            googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker"));
             googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
         }
     };
@@ -42,6 +45,9 @@ public class MapsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+        //Bundle bundle = this.getArguments();
+        //lat = bundle.getDouble("latitude");
+        //lng = bundle.getDouble("longitude");
         return inflater.inflate(R.layout.fragment_maps, container, false);
     }
 

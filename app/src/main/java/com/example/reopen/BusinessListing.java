@@ -27,6 +27,9 @@ public class BusinessListing {
     private String description;
     private String address;
     private String openDate;
+
+
+
     private LatLng location;
 
     public BusinessListing() {
@@ -44,6 +47,10 @@ public class BusinessListing {
         this.email = email;
         this.phone = phone;
         this.location = location;
+    }
+
+    public LatLng getLocation() {
+        return location;
     }
 
     public String getListingID() {
