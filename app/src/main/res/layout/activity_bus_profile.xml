@@ -2,7 +2,9 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/reOpen1"
+    android:textColor="@color/reOpen3">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -54,13 +56,15 @@
                     android:id="@+id/info1"
                     android:layout_width="122dp"
                     android:layout_height="match_parent"
-                    android:text="@string/business_name_long" />
+                    android:text="@string/business_name_long"
+                    android:textColor="@color/reOpen3"/>
 
                 <TextView
                     android:id="@+id/infoData1"
                     android:layout_width="291dp"
                     android:layout_height="wrap_content"
-                    android:text="TextView" />
+                    android:text="TextView"
+                    android:textColor="@color/reOpen3"/>
             </TableRow>
 
             <TableRow
@@ -71,13 +75,15 @@
                     android:id="@+id/info2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/address_line" />
+                    android:text="@string/address_line"
+                    android:textColor="@color/reOpen3"/>
 
                 <TextView
                     android:id="@+id/infoData2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TextView" />
+                    android:text="TextView"
+                    android:textColor="@color/reOpen3"/>
             </TableRow>
 
             <TableRow
@@ -88,13 +94,15 @@
                     android:id="@+id/info3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/phone_number" />
+                    android:text="@string/phone_number"
+                    android:textColor="@color/reOpen3"/>
 
                 <TextView
                     android:id="@+id/infoData3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TextView" />
+                    android:text="TextView"
+                    android:textColor="@color/reOpen3"/>
             </TableRow>
 
             <TableRow
@@ -105,13 +113,15 @@
                     android:id="@+id/info4"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="@string/opening_date" />
+                    android:text="@string/opening_date"
+                    android:textColor="@color/reOpen3"/>
 
                 <TextView
                     android:id="@+id/infoData4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TextView" />
+                    android:text="TextView"
+                    android:textColor="@color/reOpen3"/>
             </TableRow>
         </TableLayout>
 
@@ -121,6 +131,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="21dp"
             android:layout_marginHorizontal="30dp"
+            android:textColor="@color/reOpen3"
             android:text="REALLY LONG TEXT REALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXT" />
     </LinearLayout>
 </ScrollView>

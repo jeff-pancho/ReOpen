@@ -41,16 +41,16 @@ public class BusProfileActivity extends AppCompatActivity {
         TextView openingDate = findViewById(R.id.infoData4);
         openingDate.setText(business.getOpenDate());
 
-        //LatLng location = business.getLocation();
-        //Bundle bundle = new Bundle();
-        //double lat = location.latitude;
-        //double lng = location.longitude;
-        //bundle.putDouble("latitude", lat);
-        //bundle.putDouble("longitude", lng);
-        //MapsFragment fraginfo = new MapsFragment();
-        //fraginfo.setArguments(bundle);
-        //transaction.replace(R.id.map, fraginfo);
-        //transaction.commit();
+        LatLng location = business.getLocation();
+        Bundle bundle = new Bundle();
+        double lat = location.latitude;
+        double lng = location.longitude;
+        bundle.putDouble("latitude", lat);
+        bundle.putDouble("longitude", lng);
+        MapsFragment fraginfo = new MapsFragment();
+        fraginfo.setArguments(bundle);
+        transaction.replace(R.id.fragment, fraginfo);
+        transaction.commit();
     }
 
     private BusinessListing getBusiness() {

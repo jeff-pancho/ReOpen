@@ -45,9 +45,9 @@ public class MapsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        //Bundle bundle = this.getArguments();
-        //lat = bundle.getDouble("latitude");
-        //lng = bundle.getDouble("longitude");
+        Bundle bundle = this.getArguments();
+        lat = bundle.getDouble("latitude");
+        lng = bundle.getDouble("longitude");
         return inflater.inflate(R.layout.fragment_maps, container, false);
     }
 
