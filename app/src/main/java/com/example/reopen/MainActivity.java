@@ -22,6 +22,7 @@ import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     List<BusinessListing> listings = new ArrayList<>();
@@ -61,11 +62,11 @@ public class MainActivity extends AppCompatActivity {
                     listings.add(bus);
                 }
 
-                initRecyclerView(R.id.featured_recycler, "Restaurant");
-                initRecyclerView(R.id.restaurant_recycler, "Restaurant");
-                initRecyclerView(R.id.shopping_recycler, "Shopping");
-                initRecyclerView(R.id.services_recycler, "Services");
-                initRecyclerView(R.id.other_recycler, "Other");
+                initRecyclerView(R.id.featured_recycler, selectRandomListings(4));
+                initRecyclerView(R.id.restaurant_recycler, getBusByCategory("Restaurant"));
+                initRecyclerView(R.id.shopping_recycler, getBusByCategory("Shopping"));
+                initRecyclerView(R.id.services_recycler, getBusByCategory("Services"));
+                initRecyclerView(R.id.other_recycler, getBusByCategory("Other"));
             }
 
             @Override
@@ -73,9 +74,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void initRecyclerView(int id, String category) {
+    private void initRecyclerView(int id, List<BusinessListing> businesses) {
         RecyclerView recyclerView = findViewById(id);
-        CaptionedImagesAdapter adapter = new CaptionedImagesAdapter(getBusByCategory(category));
+        CaptionedImagesAdapter adapter = new CaptionedImagesAdapter(businesses);
         recyclerView.setAdapter(adapter);
 
         LinearLayoutManager lm = new LinearLayoutManager(MainActivity.this);
@@ -100,6 +101,22 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         return result;
+    }
+
+    private List<BusinessListing> selectRandomListings(int amount) {
+        Random rd = new Random();
+
+        // Shallow copy that we will randomly select from
+        List<BusinessListing> clonedListings = new ArrayList<>(listings);
+        List<BusinessListing> randomListings = new ArrayList<>();
+
+        for (int i = 0; i < amount && clonedListings.size() > 0; i++) {
+            int randIndex = rd.nextInt(clonedListings.size());
+            randomListings.add(clonedListings.get(randIndex));
+            clonedListings.remove(randIndex);
+        }
+
+        return randomListings;
     }
 
     public void onMakePost(View v) {
