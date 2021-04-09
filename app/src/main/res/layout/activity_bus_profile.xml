@@ -34,7 +34,6 @@
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragment"
-            android:name="com.example.reopen.MapsFragment"
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:layout_marginTop="15dp"
@@ -131,7 +130,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="21dp"
             android:layout_marginHorizontal="30dp"
-            android:textColor="@color/reOpen3"
-            android:text="REALLY LONG TEXT REALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXTREALLY LONG TEXT" />
+            android:textColor="@color/reOpen3" />
     </LinearLayout>
 </ScrollView>
