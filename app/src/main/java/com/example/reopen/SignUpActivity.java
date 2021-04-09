@@ -146,6 +146,7 @@ public class SignUpActivity extends AppCompatActivity {
         businessImageURL = findViewById(R.id.sign_up_image_url);
 
         initSpinner();
+        initOpeningDateSpinners();
 
         addListing = findViewById(R.id.sign_up_button);
 
@@ -189,5 +190,19 @@ public class SignUpActivity extends AppCompatActivity {
         };
         categoryAdapter.setDropDownViewResource(R.layout.spinner_layout);
         businessCategory.setAdapter(categoryAdapter);
+    }
+
+    private void initOpeningDateSpinners() {
+        CharSequence[] months = getResources().getStringArray(R.array.months_spinner_items);
+        ArrayAdapter<CharSequence> monthsAdapter =
+                new ArrayAdapter<>(this, R.layout.spinner_layout, months);
+        monthsAdapter.setDropDownViewResource(R.layout.spinner_layout);
+        businessMonthSpinner.setAdapter(monthsAdapter);
+
+        CharSequence[] days = getResources().getStringArray(R.array.days_spinner_items);
+        ArrayAdapter<CharSequence> daysAdapter =
+                new ArrayAdapter<>(this, R.layout.spinner_layout, days);
+        daysAdapter.setDropDownViewResource(R.layout.spinner_layout);
+        businessDaySpinner.setAdapter(daysAdapter);
     }
 }
