@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.android.gms.maps.model.LatLng;
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
@@ -42,15 +41,17 @@ public class BusProfileActivity extends AppCompatActivity {
         openingDate.setText(business.getOpenDate());
 
         LatLng location = business.getLocation();
+        double lat = location.getLatitude();
+        double lng = location.getLongitude();
+
         Bundle bundle = new Bundle();
-        double lat = location.latitude;
-        double lng = location.longitude;
+
         bundle.putDouble("latitude", lat);
         bundle.putDouble("longitude", lng);
-        MapsFragment fraginfo = new MapsFragment();
-        fraginfo.setArguments(bundle);
-        transaction.replace(R.id.fragment, fraginfo);
-        transaction.commit();
+//        MapsFragment fraginfo = new MapsFragment();
+//        fraginfo.setArguments(bundle);
+//        transaction.replace(R.id.fragment, fraginfo);
+//        transaction.commit();
     }
 
     private BusinessListing getBusiness() {

@@ -1,17 +1,5 @@
 package com.example.reopen;
 
-import androidx.annotation.NonNull;
-
-import com.google.android.gms.maps.model.LatLng;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * This is a re-write of the Business class, with more information, and without enums so that
  * it's more database friendly.
@@ -27,8 +15,6 @@ public class BusinessListing {
     private String description;
     private String address;
     private String openDate;
-
-
 
     private LatLng location;
 

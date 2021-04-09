@@ -50,7 +50,10 @@ public class SignUpActivity extends AppCompatActivity {
 
         String id = databaseListings.push().getKey();
 
-        BusinessListing bl = new BusinessListing(id, name, email, phone, category, imageURL, address, openDate, description, location);
+        com.example.reopen.LatLng passthroughLatLng =
+                new com.example.reopen.LatLng(location.latitude, location.longitude);
+
+        BusinessListing bl = new BusinessListing(id, name, email, phone, category, imageURL, address, openDate, description, passthroughLatLng);
 
         Task setValueTask = databaseListings.child(id).setValue(bl);
 
