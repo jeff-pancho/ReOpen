@@ -1,15 +1,20 @@
 package com.example.reopen;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.maps.model.LatLng;
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
 public class BusProfileActivity extends AppCompatActivity {
+
+    FragmentTransaction transaction;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +40,17 @@ public class BusProfileActivity extends AppCompatActivity {
 
         TextView openingDate = findViewById(R.id.infoData4);
         openingDate.setText(business.getOpenDate());
+
+        LatLng location = business.getLocation();
+        Bundle bundle = new Bundle();
+        double lat = location.latitude;
+        double lng = location.longitude;
+        bundle.putDouble("latitude", lat);
+        bundle.putDouble("longitude", lng);
+        MapsFragment fraginfo = new MapsFragment();
+        fraginfo.setArguments(bundle);
+        transaction.replace(R.id.fragment, fraginfo);
+        transaction.commit();
     }
 
     private BusinessListing getBusiness() {

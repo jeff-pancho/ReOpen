@@ -6,12 +6,16 @@
     android:layout_height="200dp"
     android:layout_margin="5dp"
     card_view:cardElevation="2dp"
-    card_view:cardCornerRadius="4dp" >
+    card_view:cardCornerRadius="4dp"
+    android:background="@color/reOpen1"
+    android:textColor="@color/reOpen3">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:background="@color/reOpen1"
+        android:textColor="@color/reOpen3">
 
         <ImageView
             android:id="@+id/item_image"
@@ -25,7 +29,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:layout_marginBottom="4dp"/>
+            android:layout_marginBottom="4dp"
+            android:textColor="@color/reOpen3"/>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

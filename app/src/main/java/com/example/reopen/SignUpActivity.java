@@ -14,6 +14,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -31,12 +32,15 @@ public class SignUpActivity extends AppCompatActivity {
     EditText businessDescription;
     EditText businessImageURL;
     Button addListing;
+    AddrToLatLong atll;
 
     DatabaseReference databaseListings;
 
     private void addListing(){
+        atll = new AddrToLatLong();
         String name = businessName.getText().toString().trim();
         String address = businessAddress.getText().toString().trim();
+        LatLng location = atll.getLocationFromAddress(this, address);
         String email = businessEmail.getText().toString().trim();
         String phone = businessPhone.getText().toString().trim();
         String category = businessCategory.getSelectedItem().toString().trim();
@@ -46,7 +50,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         String id = databaseListings.push().getKey();
 
-        BusinessListing bl = new BusinessListing(id, name, email, phone, category, imageURL, address, openDate, description);
+        BusinessListing bl = new BusinessListing(id, name, email, phone, category, imageURL, address, openDate, description, location);
 
         Task setValueTask = databaseListings.child(id).setValue(bl);
 
