@@ -46,10 +46,8 @@ public class MapsFragment extends Fragment {
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         Bundle bundle = this.getArguments();
-        if (bundle != null) {
-            lat = bundle.getDouble("latitude");
-            lng = bundle.getDouble("longitude");
-        }
+        lat = bundle.getDouble("latitude");
+        lng = bundle.getDouble("longitude");
         return inflater.inflate(R.layout.fragment_maps, container, false);
     }
 

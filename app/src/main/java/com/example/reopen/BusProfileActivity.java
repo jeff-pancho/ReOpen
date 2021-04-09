@@ -1,6 +1,7 @@
 package com.example.reopen;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
@@ -13,7 +14,6 @@ import com.squareup.picasso.Picasso;
 public class BusProfileActivity extends AppCompatActivity {
 
     FragmentTransaction transaction;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,12 +46,15 @@ public class BusProfileActivity extends AppCompatActivity {
 
         Bundle bundle = new Bundle();
 
+        FragmentManager manager = getSupportFragmentManager();
+        transaction = manager.beginTransaction();
+
         bundle.putDouble("latitude", lat);
         bundle.putDouble("longitude", lng);
-//        MapsFragment fraginfo = new MapsFragment();
-//        fraginfo.setArguments(bundle);
-//        transaction.replace(R.id.fragment, fraginfo);
-//        transaction.commit();
+        MapsFragment fragInfo = new MapsFragment();
+        fragInfo.setArguments(bundle);
+        transaction.replace(R.id.fragment, fragInfo);
+        transaction.commit();
     }
 
     private BusinessListing getBusiness() {
