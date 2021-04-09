@@ -31,6 +31,12 @@
                 android:hint="@string/business_name"
                 android:textColor="@color/reOpen3" />
 
+            <Spinner
+                android:id="@+id/category_spinner"
+                style="@style/TextPrompt"
+                android:layout_marginVertical="10dp"
+                android:textColor="@color/reOpen3" />
+
             <EditText
                 android:id="@+id/sign_up_address"
                 style="@style/TextPrompt"
@@ -55,19 +61,42 @@
                 android:hint="@string/business_phone"
                 android:textColor="@color/reOpen3"/>
 
-            <Spinner
-                android:id="@+id/category_spinner"
-                style="@style/TextPrompt"
-                android:layout_marginVertical="10dp"
-                android:textColor="@color/reOpen3" />
-
-            <EditText
+            <TextView
                 android:id="@+id/sign_up_date"
                 style="@style/TextPrompt"
                 android:layout_marginVertical="10dp"
-                android:inputType="date"
-                android:hint="@string/business_date"
+                android:layout_gravity="center"
+                android:text="@string/business_date"
                 android:textColor="@color/reOpen3"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Spinner
+                    android:id="@+id/month_spinner"
+                    style="@style/TextPrompt"
+                    android:entries="@array/months_spinner_items"
+                    android:layout_width="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:textColor="@color/reOpen3" />
+
+                <Spinner
+                    android:id="@+id/day_spinner"
+                    style="@style/TextPrompt"
+                    android:entries="@array/days_spinner_items"
+                    android:layout_width="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:textColor="@color/reOpen3" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/sign_up_image_url"
+                style="@style/TextPrompt"
+                android:layout_marginVertical="10dp"
+                android:inputType="textUri"
+                android:hint="@string/business_image_url"
+                android:textColor="@color/reOpen3" />
 
             <EditText
                 android:id="@+id/sign_up_description"
@@ -78,14 +107,6 @@
                 android:inputType="textMultiLine"
                 android:hint="@string/business_description"
                 android:textColor="@color/reOpen3"/>
-
-            <EditText
-                android:id="@+id/sign_up_image_url"
-                style="@style/TextPrompt"
-                android:layout_marginVertical="10dp"
-                android:inputType="textUri"
-                android:hint="@string/business_image_url"
-                android:textColor="@color/reOpen3" />
 
             <Button
                 android:id="@+id/sign_up_button"
