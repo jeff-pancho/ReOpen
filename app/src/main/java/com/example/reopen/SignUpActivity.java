@@ -3,8 +3,10 @@ package com.example.reopen;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -28,7 +30,8 @@ public class SignUpActivity extends AppCompatActivity {
     EditText businessEmail;
     EditText businessPhone;
     Spinner businessCategory;
-    EditText businessOpenDate;
+    Spinner businessMonthSpinner;
+    Spinner businessDaySpinner;
     EditText businessDescription;
     EditText businessImageURL;
     Button addListing;
@@ -44,9 +47,51 @@ public class SignUpActivity extends AppCompatActivity {
         String email = businessEmail.getText().toString().trim();
         String phone = businessPhone.getText().toString().trim();
         String category = businessCategory.getSelectedItem().toString().trim();
-        String openDate = businessOpenDate.getText().toString().trim();
+        String open_month = businessMonthSpinner.getSelectedItem().toString().trim();
+        String open_day = businessDaySpinner.getSelectedItem().toString().trim();
+        String openDate =  open_month + " " + open_day;
         String description = businessDescription.getText().toString().trim();
         String imageURL = businessImageURL.getText().toString().trim();
+
+
+        if (location == null) {
+            Toast.makeText(this, "The address you entered is not valid!", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if (open_month.equals("Feb")) {
+            if (open_day.equals("30") || open_day.equals("31")) {
+                Toast.makeText(this, "Date is not valid.", Toast.LENGTH_LONG).show();
+                return;
+            }
+        }
+
+        if (open_month.equals("Apr") || open_month.equals("Jun")
+                || open_month.equals("Sep") || open_month.equals("Nov")) {
+            if (open_day.equals("31")) {
+                Toast.makeText(this, "Date is not valid.", Toast.LENGTH_LONG).show();
+                return;
+            }
+        }
+
+        if (category.equals("Business Category")) {
+            Toast.makeText(this, "Please select a category for your business", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+
+        if (TextUtils.isEmpty(name) || TextUtils.isEmpty(address)
+                || TextUtils.isEmpty(email) || TextUtils.isEmpty(phone)
+                || TextUtils.isEmpty(description)) {
+            Toast.makeText(this, "Must enter information in all fields.", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if(description.length() > 280) {
+            Toast.makeText(this, "Description must be under 280 chars.", Toast.LENGTH_LONG).show();
+            return;
+        }
+
 
         String id = databaseListings.push().getKey();
 
@@ -67,9 +112,11 @@ public class SignUpActivity extends AppCompatActivity {
                 businessEmail.setText("");
                 businessPhone.setText("");
                 businessCategory.setSelection(0);
-                businessOpenDate.setText("");
                 businessDescription.setText("");
                 businessImageURL.setText("");
+
+                Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -93,11 +140,13 @@ public class SignUpActivity extends AppCompatActivity {
         businessEmail = findViewById(R.id.sign_up_email);
         businessPhone = findViewById(R.id.sign_up_phone);
         businessCategory = findViewById(R.id.category_spinner);
-        businessOpenDate = findViewById(R.id.sign_up_date);
+        businessMonthSpinner = findViewById(R.id.month_spinner);
+        businessDaySpinner = findViewById(R.id.day_spinner);
         businessDescription = findViewById(R.id.sign_up_description);
         businessImageURL = findViewById(R.id.sign_up_image_url);
 
         initSpinner();
+        initOpeningDateSpinners();
 
         addListing = findViewById(R.id.sign_up_button);
 
@@ -141,5 +190,19 @@ public class SignUpActivity extends AppCompatActivity {
         };
         categoryAdapter.setDropDownViewResource(R.layout.spinner_layout);
         businessCategory.setAdapter(categoryAdapter);
+    }
+
+    private void initOpeningDateSpinners() {
+        CharSequence[] months = getResources().getStringArray(R.array.months_spinner_items);
+        ArrayAdapter<CharSequence> monthsAdapter =
+                new ArrayAdapter<>(this, R.layout.spinner_layout, months);
+        monthsAdapter.setDropDownViewResource(R.layout.spinner_layout);
+        businessMonthSpinner.setAdapter(monthsAdapter);
+
+        CharSequence[] days = getResources().getStringArray(R.array.days_spinner_items);
+        ArrayAdapter<CharSequence> daysAdapter =
+                new ArrayAdapter<>(this, R.layout.spinner_layout, days);
+        daysAdapter.setDropDownViewResource(R.layout.spinner_layout);
+        businessDaySpinner.setAdapter(daysAdapter);
     }
 }

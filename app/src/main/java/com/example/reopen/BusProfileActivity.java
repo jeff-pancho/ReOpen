@@ -1,6 +1,7 @@
 package com.example.reopen;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -40,18 +41,22 @@ public class BusProfileActivity extends AppCompatActivity {
         TextView openingDate = findViewById(R.id.infoData4);
         openingDate.setText(business.getOpenDate());
 
+        TextView businessBio = findViewById(R.id.businessBio);
+        businessBio.setText(business.getDescription());
+
         LatLng location = business.getLocation();
         double lat = location.getLatitude();
         double lng = location.getLongitude();
 
-        Bundle bundle = new Bundle();
-
         FragmentManager manager = getSupportFragmentManager();
         transaction = manager.beginTransaction();
 
+        Bundle bundle = new Bundle();
         bundle.putDouble("latitude", lat);
         bundle.putDouble("longitude", lng);
+
         MapsFragment fragInfo = new MapsFragment();
+
         fragInfo.setArguments(bundle);
         transaction.replace(R.id.fragment, fragInfo);
         transaction.commit();
