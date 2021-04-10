@@ -18,8 +18,7 @@
             <TextView
                 android:id="@+id/post_title"
                 style="@style/InputHeader"
-                android:text="@string/sign_up_title"
-                android:textColor="@color/reOpen3" />
+                android:text="@string/sign_up_title" />
 
             <EditText
                 android:id="@+id/sign_up_name"

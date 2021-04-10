@@ -115,8 +115,7 @@ public class SignUpActivity extends AppCompatActivity {
                 businessDescription.setText("");
                 businessImageURL.setText("");
 
-                Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
 
