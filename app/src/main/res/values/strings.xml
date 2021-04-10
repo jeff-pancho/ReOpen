@@ -8,7 +8,8 @@
     <string name="other_text">Other</string>
 
     <string name="toolbar_search_field_hint">Search Businesses</string>
-    <string name="post_button_text">Post</string>
+    <string name="menu_post">Post</string>
+    <string name="menu_logout">Log out</string>
     <string name="title_activity_profile_map">Map</string>
 
     <string name="business_name_long">Business Name: </string>

@@ -11,8 +11,12 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -40,6 +44,29 @@ public class MainActivity extends AppCompatActivity {
 
         initSearchBar();
         initListings();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_post:
+                startActivity(new Intent(MainActivity.this, SignUpActivity.class));
+                return true;
+            case R.id.menu_logout:
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     public void initSearchBar() {
@@ -117,10 +144,5 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return randomListings;
-    }
-
-    public void onMakePost(View v) {
-        Intent intent = new Intent(MainActivity.this, SignUpActivity.class);
-        startActivity(intent);
     }
 }
