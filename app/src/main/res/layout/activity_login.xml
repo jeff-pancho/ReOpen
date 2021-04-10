@@ -5,14 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".LoginActivity"
-    android:background="@color/reOpen1"
-    android:textColor="@color/reOpen3">
+    tools:context=".LoginActivity">
 
     <TextView
         android:id="@+id/tvApp"
         style="@style/InputHeader"
-        android:textColor="@color/reOpen3"
         android:text="@string/login_title" />
 
     <EditText
@@ -20,7 +17,6 @@
         style="@style/TextPrompt"
         android:layout_marginVertical="10dp"
         android:hint="@string/email"
-        android:textColor="@color/reOpen3"
         android:inputType="textEmailAddress" />
 
     <EditText
@@ -28,8 +24,7 @@
         style="@style/TextPrompt"
         android:layout_marginVertical="10dp"
         android:hint="@string/password"
-        android:inputType="textPassword"
-        android:textColor="@color/reOpen3"/>
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/btnLogin"
@@ -46,8 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="5dp"
         android:layout_gravity="center_horizontal"
-        android:text="@string/create_new_account"
-        android:textColor="@color/reOpen3" />
+        android:text="@string/create_new_account" />
 
     <ProgressBar
         android:id="@+id/progressBar"

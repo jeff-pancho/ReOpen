@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUpActivity"
-    android:background="@color/reOpen1"
-    android:textColor="@color/reOpen3">
+    tools:context=".SignUpActivity">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,60 +18,47 @@
             <TextView
                 android:id="@+id/post_title"
                 style="@style/InputHeader"
-                android:text="@string/sign_up_title"
-                android:textColor="@color/reOpen3" />
+                android:text="@string/sign_up_title" />
 
             <EditText
                 android:id="@+id/sign_up_name"
                 style="@style/TextPrompt"
                 android:layout_marginVertical="10dp"
                 android:inputType="textPersonName"
-                android:hint="@string/business_name"
-                android:textColor="@color/reOpen3"
-                android:textColorHint="@color/reOpen3"/>
+                android:hint="@string/business_name" />
 
             <EditText
                 android:id="@+id/sign_up_address"
                 style="@style/TextPrompt"
                 android:layout_marginVertical="10dp"
                 android:inputType="textPostalAddress"
-                android:hint="@string/business_address"
-                android:textColor="@color/reOpen3"
-                android:textColorHint="@color/reOpen3"/>
+                android:hint="@string/business_address" />
 
             <EditText
                 android:id="@+id/sign_up_email"
                 style="@style/TextPrompt"
                 android:layout_marginVertical="10dp"
                 android:inputType="textEmailAddress"
-                android:hint="@string/business_email"
-                android:textColor="@color/reOpen3"
-                android:textColorHint="@color/reOpen3"/>
+                android:hint="@string/business_email" />
 
             <EditText
                 android:id="@+id/sign_up_phone"
                 style="@style/TextPrompt"
                 android:layout_marginVertical="10dp"
                 android:inputType="phone"
-                android:hint="@string/business_phone"
-                android:textColor="@color/reOpen3"
-                android:textColorHint="@color/reOpen3"/>
+                android:hint="@string/business_phone" />
 
             <Spinner
                 android:id="@+id/category_spinner"
                 style="@style/TextPrompt"
-                android:layout_marginVertical="10dp"
-                android:textColor="@color/reOpen3"
-                android:background="@color/reOpen1"/>
+                android:layout_marginVertical="10dp" />
 
             <EditText
                 android:id="@+id/sign_up_date"
                 style="@style/TextPrompt"
                 android:layout_marginVertical="10dp"
                 android:inputType="date"
-                android:hint="@string/business_date"
-                android:textColor="@color/reOpen3"
-                android:textColorHint="@color/reOpen3"/>
+                android:hint="@string/business_date" />
 
             <EditText
                 android:id="@+id/sign_up_description"
@@ -82,18 +67,14 @@
                 android:layout_marginVertical="10dp"
                 android:gravity="start|top"
                 android:inputType="textMultiLine"
-                android:hint="@string/business_description"
-                android:textColor="@color/reOpen3"
-                android:textColorHint="@color/reOpen3"/>
+                android:hint="@string/business_description" />
 
             <EditText
                 android:id="@+id/sign_up_image_url"
                 style="@style/TextPrompt"
                 android:layout_marginVertical="10dp"
                 android:inputType="textUri"
-                android:hint="@string/business_image_url"
-                android:textColor="@color/reOpen3"
-                android:textColorHint="@color/reOpen3"/>
+                android:hint="@string/business_image_url" />
 
             <Button
                 android:id="@+id/sign_up_button"
