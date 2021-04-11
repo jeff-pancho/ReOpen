@@ -102,7 +102,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="10dp"
                 android:layout_gravity="center_horizontal"
-                android:text="@string/sign_up_title" />
+                android:text="@string/post_button" />
         </LinearLayout>
 
     </ScrollView>

@@ -34,6 +34,7 @@
     <string name="business_date">Opening Date</string>
     <string name="business_description">Description (Max 280 chars.)\n\n\n\n</string>
     <string name="business_image_url">Image URL (Optional)</string>
+    <string name="post_button">POST YOUR LISTING</string>
 
     <!-- Strings for sign up spinner -->
     <!-- Note: These strings are passed to database for "category" type.-->
