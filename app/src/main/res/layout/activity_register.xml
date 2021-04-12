@@ -8,6 +8,16 @@
     tools:context=".RegisterActivity">
 
     <TextView
+        android:id="@+id/titleRegister"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        style="@style/TitleText"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_horizontal"
+        />
+
+    <TextView
         android:id="@+id/tvApp"
         style="@style/InputHeader"
         android:text="@string/create_new_account" />
