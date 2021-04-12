@@ -16,6 +16,7 @@
     <string name="address_line">Address: </string>
     <string name="phone_number">Phone Number: </string>
     <string name="opening_date">Opening Date: </string>
+    <string name="bus_profile_email">Email: </string>
 
     <!-- Strings for register/login -->
     <string name="login_title">LOGIN</string>

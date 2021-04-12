@@ -44,6 +44,9 @@ public class BusProfileActivity extends AppCompatActivity {
         TextView businessBio = findViewById(R.id.businessBio);
         businessBio.setText(business.getDescription());
 
+        TextView busEmail = findViewById(R.id.infoData5);
+        busEmail.setText(business.getEmail());
+
         LatLng location = business.getLocation();
         double lat = location.getLatitude();
         double lng = location.getLongitude();
